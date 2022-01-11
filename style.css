@@ -6,13 +6,18 @@ td {
 
 table {
     border-collapse: collapse;
+    border : 30px solid black;
+    position: absolute;
+    left: 50%;
+    margin-left: -155px;
+    top: 50px;
 }
 table tr:nth-child(odd) {
     background-color: bisque;
 }
 
 table tr:nth-child(odd) td:nth-child(even) {
-    background-color: black;
+    background-color: rgb(179, 140, 93);
 }
 
 table tr:nth-child(even) {
@@ -20,5 +25,5 @@ table tr:nth-child(even) {
 }
 
 table tr:nth-child(even) td:nth-child(odd) {
-    background-color: black;
+    background-color: rgb(179, 140, 93);
 }
