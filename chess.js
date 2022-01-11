@@ -20,6 +20,7 @@ let Pieces = class {
     pieceColor(piece){
         piece == piece.toUpperCase ? this.color = Black : this.color = White
     }
+    
     pieceType(piece){
         
         piece.toLowerCase();
