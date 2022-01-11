@@ -13,17 +13,17 @@ table {
     top: 50px;
 }
 table tr:nth-child(odd) {
-    background-color: bisque;
+    background-color: lightcyan;
 }
 
 table tr:nth-child(odd) td:nth-child(even) {
-    background-color: rgb(179, 140, 93);
+    background-color: darkslateblue;
 }
 
 table tr:nth-child(even) {
-    background-color: bisque;
+    background-color: lightcyan;
 }
 
 table tr:nth-child(even) td:nth-child(odd) {
-    background-color: rgb(179, 140, 93);
+    background-color: darkslateblue;
 }
