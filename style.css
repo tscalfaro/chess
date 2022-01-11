@@ -11,6 +11,7 @@ table {
     left: 50%;
     margin-left: -155px;
     top: 50px;
+    text-align: center;
 }
 table tr:nth-child(odd) {
     background-color: lightcyan;
