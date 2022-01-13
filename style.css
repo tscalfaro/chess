@@ -1,7 +1,7 @@
 td {
     border: 2px solid black;
-    height: 75px;
-    width: 75px;
+    height: 100px;
+    width: 100px;
 }
 
 table {
@@ -18,7 +18,7 @@ table tr:nth-child(odd) {
 }
 
 table tr:nth-child(odd) td:nth-child(even) {
-    background-color: darkslateblue;
+    background-color: rgb(12, 70, 43);
 }
 
 table tr:nth-child(even) {
@@ -26,10 +26,16 @@ table tr:nth-child(even) {
 }
 
 table tr:nth-child(even) td:nth-child(odd) {
-    background-color: darkslateblue;
+    background-color: rgb(12, 70, 43);
 }
 
 table img {
     height: 100%;
     width: 90%;
+    cursor: pointer;
+}
+
+table img:hover {
+    height: 105%;
+    width: 92%;
 }

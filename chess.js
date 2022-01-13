@@ -24,17 +24,16 @@ const Black = 16;
 
 class Pieces {
   constructor(piece, place) {
-    console.log(piece)
     this.pieceType(piece);
     this.pieceColor(piece);
     this.piecePlace(place);
     this.pieceImage();
     this.placePiece();
+    this.moveStyle();
   }
 
   pieceColor(piece) {
     piece == piece.toUpperCase() ? this.color = Black : this.color = White
-
   }
 
   pieceType(piece) {
@@ -53,13 +52,11 @@ class Pieces {
 
   placePiece() {
     let testPlace = document.getElementById(this.place)
-    // console.log(testPlace.innerHTML)
     testPlace.innerHTML = `<img src=${this.image} />`
-    // console.log(testPlace.innerHTML)
+    
   }
 
   pieceImage() {
-    console.log(this.image)
     if (this.color === White) {
       if (this.type === King) this.image = w_King;
       if (this.type === Queen) this.image = w_Queen
@@ -76,62 +73,77 @@ class Pieces {
       if (this.type === Rook) this.image = b_Rook
       if (this.type === Pawn) this.image = b_Pawn
     }
-    console.log(this.image)
+  }
+
+  moveStyle(){
+    if(this.type === 2){
+      this.movement = 'Pickup';
+    } else {
+      this.movement = 'Dragable';
+    }
   }
 }
 
 class Board {
   constructor() {
-    let board = [];
-    let whiteSet = [];
-    let blackSet = [];
+    this.board = []
+    this.blackSet = [];
+    this.whiteSet = [];
+    this.populateBlackSet()
+    this.populateWhiteSet()
 
-    for (let i = 0; i < 8; i++) {
-      switch (i) {
-        case i == 0: {
-          blackSet[i] = new Pieces("K", 60);
-        }
-        case i == 1: {
-          blackSet[i] = new Pieces("Q", 59);
-        }
-        case i == 2: {
-          blackSet[i] = new Pieces("B", 61);
-        }
-        case i == 3: {
-          blackSet[i] = new Pieces("B", 58);
-        }
-        case i == 4: {
-          blackSet[i] = new Pieces("N", 57);
-        }
-        case i == 5: {
-          blackSet[i] = new Pieces("N", 52);
-        }
-        case i == 6: {
-          blackSet[i] = new Pieces("R", 51);
-        }
-        case i == 7: {
-          blackSet[i] = new Pieces("R", 63);
-        }
-        default: {
-          for (let j = 0; j < 8; j++) {
-            blackSet[i] = new Pieces("P", 48 + j);
-          }
+    for(let i = 0; i < this.blackSet.length; i++){
+        this.board[this.blackSet[i].place] = this.blackSet[i]
+    }
+
+    for(let i = 0; i < this.whiteSet.length; i++){
+      this.board[this.whiteSet[i].place] = this.whiteSet[i]
+     }
+    
+  }
+
+  populateBlackSet(){
+    let j = 0;
+    for (let i = 0; i < 16; i++) {
+      if(i === 0) this.blackSet[i] = new Pieces('K', 59)
+      if(i === 1) this.blackSet[i] = new Pieces('Q', 60)
+      if(i === 2) this.blackSet[i] = new Pieces('B', 61)
+      if(i === 3) this.blackSet[i] = new Pieces('B', 58)
+      if(i === 4) this.blackSet[i] = new Pieces('N', 57)
+      if(i === 5) this.blackSet[i] = new Pieces('N', 62)
+      if(i === 6) this.blackSet[i] = new Pieces('R', 56)
+      if(i === 7) this.blackSet[i] = new Pieces('R', 63)
+      if(i > 7){ 
+          this.blackSet[i] = new Pieces("P", 48 + j);
+          j++;
         }
       }
     }
-    for(let i = 0; i < blackSet.length; i++){
-        board[blackSet[i].place] = blackSet[i]
+
+    populateWhiteSet() {
+      let j = 0;
+      for (let i = 0; i < 16; i++) {
+        if(i === 0) this.whiteSet[i] = new Pieces('k', 3)
+        if(i === 1) this.whiteSet[i] = new Pieces('q', 4)
+        if(i === 2) this.whiteSet[i] = new Pieces('b', 2)
+        if(i === 3) this.whiteSet[i] = new Pieces('b', 5)
+        if(i === 4) this.whiteSet[i] = new Pieces('n', 1)
+        if(i === 5) this.whiteSet[i] = new Pieces('n', 6)
+        if(i === 6) this.whiteSet[i] = new Pieces('r', 0)
+        if(i === 7) this.whiteSet[i] = new Pieces('r', 7)
+        if(i > 7){ 
+            this.whiteSet[i] = new Pieces("p", 8 + j);
+            j++;
+          }
+        }
+        console.log(this.whiteSet)
     }
-    console.log(board[0]);
-    board[0] = new Pieces("B", 0);
-    console.log(board[0]);
-    board[64] = new Pieces("r", 64);
+    
   }
-}
+
 // let origBoard = new Board();
 startGame();
 
 function startGame() {
-  let test = new Pieces('Q', '1')
-  console.log(test);
+  origBoard = new Board();
 }
