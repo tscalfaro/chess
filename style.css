@@ -2,6 +2,7 @@ td {
     border: 2px solid black;
     height: 100px;
     width: 100px;
+    justify-content: baseline;
 }
 
 table {
@@ -18,7 +19,7 @@ table tr:nth-child(odd) {
 }
 
 table tr:nth-child(odd) td:nth-child(even) {
-    background-color: rgb(12, 70, 43);
+    background-color: rgb(94, 31, 211);
 }
 
 table tr:nth-child(even) {
@@ -26,16 +27,15 @@ table tr:nth-child(even) {
 }
 
 table tr:nth-child(even) td:nth-child(odd) {
-    background-color: rgb(12, 70, 43);
+    background-color: rgb(94, 31, 211);
 }
 
 table img {
-    height: 100%;
-    width: 90%;
+    height: 80%;
+    width: 85%;
     cursor: pointer;
 }
-
 table img:hover {
-    height: 105%;
-    width: 92%;
+    height: 90%;
+    width: 87%;
 }

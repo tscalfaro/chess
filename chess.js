@@ -52,7 +52,7 @@ class Pieces {
 
   placePiece() {
     let testPlace = document.getElementById(this.place)
-    testPlace.innerHTML = `<img src=${this.image} />`
+    testPlace.innerHTML = `<img src=${this.image} class='piece' />`
     
   }
 
@@ -147,3 +147,4 @@ startGame();
 function startGame() {
   origBoard = new Board();
 }
+
