@@ -11,6 +11,8 @@ var w_Queen = "./public/white-queen-t.png";
 var w_Knight = "./public/white-knight-t.png";
 var w_Rook = "./public/white-rook-t.png";
 var w_Pawn = "./public/white-pawn-t.png";
+
+//when considered in binary the pieces will still be identifiable hence why white and black are 8 & 16; 
 const None = 0;
 const King = 1;
 const Pawn = 2;
@@ -141,10 +143,20 @@ class Board {
     
   }
 
-// let origBoard = new Board();
+let origBoard = new Board();
 startGame();
 
 function startGame() {
   origBoard = new Board();
+  //If turn = true White turn
+  let turn = true;
+  let Player1 = White;
+  let Player2 = Black;
+
+  if (turn) {
+
+  } else {
+
+  }
 }
 

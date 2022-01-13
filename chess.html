@@ -115,7 +115,8 @@
       $(".piece").draggable({
         cursor: "grabbing",
         grid: [103, 103],
-        
+        revert: "invalid",
+        containment: 'table'
       });
 
       $('.cell').droppable({
