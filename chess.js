@@ -1,16 +1,16 @@
-var b_Bishop = "./public/blue-bishop-t";
-var b_King = "./public/blue-king-t";
-var b_Queen = "./public/blue-queen-t";
-var b_Knight = "./public/blue-knight-t";
-var b_Rook = "./public/blue-rook-t";
-var b_Pawn = "./public/blue-pawn-t";
+var b_Bishop = "./public/blue-bishop-t.png";
+var b_King = "./public/blue-king-t.png";
+var b_Queen = "./public/blue-queen-t.png";
+var b_Knight = "./public/blue-knight-t.png";
+var b_Rook = "./public/blue-rook-t.png";
+var b_Pawn = "./public/blue-pawn-t.png";
 
-var w_Bishop = "./public/white-bishop-t";
-var w_King = "./public/white-king-t";
-var w_Queen = "./public/white-queen-t";
-var w_Knight = "./public/white-knight-t";
-var w_Rook = "./public/white-rook-t";
-var w_Pawn = "./public/white-pawn-t";
+var w_Bishop = "./public/white-bishop-t.png";
+var w_King = "./public/white-king-t.png";
+var w_Queen = "./public/white-queen-t.png";
+var w_Knight = "./public/white-knight-t.png";
+var w_Rook = "./public/white-rook-t.png";
+var w_Pawn = "./public/white-pawn-t.png";
 const None = 0;
 const King = 1;
 const Pawn = 2;
@@ -24,80 +24,59 @@ const Black = 16;
 
 class Pieces {
   constructor(piece, place) {
-    piece.toLowerCase();
-    switch (piece) {
-      case piece == "k":
-        this.type = King;
-      case piece == "p":
-        this.type = Pawn;
-      case piece == "n":
-        this.type = Knight;
-      case piece == "b":
-        this.type = Bishop;
-      case piece == "r":
-        this.type = Rook;
-      case piece == "q":
-        this.type = Queen;
-      default:
-        this.type = None;
-    }
-    // pieceType(piece);
-    this.color = Black;
-    // pieceColor(piece);
-    this.place = 0;
-    // piecePlace(place);
-
-    // pieceImage();
-    // placePiece();
+    console.log(piece)
+    this.pieceType(piece);
+    this.pieceColor(piece);
+    this.piecePlace(place);
+    this.pieceImage();
+    this.placePiece();
   }
 
   pieceColor(piece) {
-    piece == piece.toUpperCase ? (this.color = Black) : (this.color = White);
+    piece == piece.toUpperCase() ? this.color = Black : this.color = White
+
   }
 
-  pieceType(piece) {}
+  pieceType(piece) {
+    piece = piece.toLowerCase();
+    if (piece === 'k') this.type = King;
+    if (piece === 'q') this.type = Queen;
+    if (piece === 'n') this.type = Knight;
+    if (piece === 'b') this.type = Bishop;
+    if (piece === 'r') this.type = Rook;
+    if (piece === 'p') this.type = Pawn;
+  }
 
   piecePlace(place) {
     this.place = place;
   }
 
   placePiece() {
-    document.getElementById(this.place).innerHTML =
-      "<img src=require('./public/blue-bishop-t')";
+    let testPlace = document.getElementById(this.place)
+    // console.log(testPlace.innerHTML)
+    testPlace.innerHTML = `<img src=${this.image} />`
+    // console.log(testPlace.innerHTML)
   }
 
   pieceImage() {
-    if (this.color == White) {
-      switch (this.piece) {
-        case King:
-          this.image = w_King;
-        case Queen:
-          this.image = w_Queen;
-        case Bishop:
-          this.image = w_Bishop;
-        case Knight:
-          this.image = w_Knight;
-        case Rook:
-          this.image = w_Rook;
-        case Pawn:
-          this.image = w_Pawn;
-      }
+    console.log(this.image)
+    if (this.color === White) {
+      if (this.type === King) this.image = w_King;
+      if (this.type === Queen) this.image = w_Queen
+      if (this.type === Knight) this.image = w_Knight
+      if (this.type === Bishop) this.image = w_Bishop
+      if (this.type === Rook) this.image = w_Rook
+      if (this.type === Pawn) this.image = w_Pawn
+      
     } else {
-      switch ((this.color, this.piece)) {
-        case King:
-          this.image = w_King;
-        case Queen:
-          this.image = w_Queen;
-        case Bishop:
-          this.image = w_Bishop;
-        case Knight:
-          this.image = w_Knight;
-        case Rook:
-          this.image = w_Rook;
-        case Pawn:
-          this.image = w_Pawn;
-      }
+      if (this.type === King) this.image = b_King;
+      if (this.type === Queen) this.image = b_Queen
+      if (this.type === Knight) this.image = b_Knight
+      if (this.type === Bishop) this.image = b_Bishop
+      if (this.type === Rook) this.image = b_Rook
+      if (this.type === Pawn) this.image = b_Pawn
     }
+    console.log(this.image)
   }
 }
 
@@ -111,7 +90,6 @@ class Board {
       switch (i) {
         case i == 0: {
           blackSet[i] = new Pieces("K", 60);
-          board[i]
         }
         case i == 1: {
           blackSet[i] = new Pieces("Q", 59);
@@ -141,15 +119,19 @@ class Board {
         }
       }
     }
+    for(let i = 0; i < blackSet.length; i++){
+        board[blackSet[i].place] = blackSet[i]
+    }
     console.log(board[0]);
     board[0] = new Pieces("B", 0);
     console.log(board[0]);
     board[64] = new Pieces("r", 64);
   }
 }
-let origBoard = new Board();
+// let origBoard = new Board();
 startGame();
 
 function startGame() {
-  console.log();
+  let test = new Pieces('Q', '1')
+  console.log(test);
 }
